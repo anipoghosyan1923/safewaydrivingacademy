@@ -1,1 +1,570 @@
 
+# Safe Way Driving Academy — Single File Landing Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Way Driving Academy</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       GLOBAL STYLES
+    ========================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0077b6;
+      --light: #caf0f8;
+      --secondary: #1a659e;
+      --accent: #e07a5f;
+      --dark: #0b1f33;
+      --white: #ffffff;
+      --gray: #f7f9fc;
+      --text: #4a5568;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================================
+       HERO SECTION
+    ========================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+        linear-gradient(135deg, var(--light), #ffffff);
+      padding-top: 120px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-bottom: 25px;
+    }
+
+    .hero-text h1 span {
+      color: var(--primary);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+      max-width: 550px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 16px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-btn:hover {
+      background: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .hero-card {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 160px;
+      height: 160px;
+      background: var(--light);
+      border-radius: 50%;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 20px;
+      color: var(--secondary);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card li {
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    /* =========================================
+       ABOUT SECTION
+    ========================================= */
+    .about {
+      background: var(--gray);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: var(--radius);
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text h2 {
+      text-align: left;
+    }
+
+    /* =========================================
+       FEATURES SECTION
+    ========================================= */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 35px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--light);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+
+    /* =========================================
+       CONTACT SECTION
+    ========================================= */
+    .contact {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: var(--white);
+    }
+
+    .contact h2,
+    .contact p {
+      color: var(--white);
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      background: rgba(255,255,255,0.08);
+      padding: 50px 40px;
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+
+    .contact-info {
+      margin-top: 25px;
+      font-size: 1.05rem;
+    }
+
+    .contact-btn {
+      margin-top: 30px;
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: white;
+      color: var(--secondary);
+      transform: translateY(-4px);
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================
+       RESPONSIVE DESIGN
+    ========================================= */
+    @media (max-width: 900px) {
+      .hero-content,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .hero-text,
+      .about-text {
+        text-align: center;
+      }
+
+      .about-text h2 {
+        text-align: center;
+      }
+
+      .hero-card {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       NAVIGATION BAR
+  ========================================== -->
+  <nav>
+    <div class="container nav-container">
+
+      <!-- Logo and Brand Name -->
+      <div class="logo">
+        <!-- Replace with direct image link if needed -->
+        <img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/placeholder.jpg" alt="Safe Way Driving Academy Logo">
+        <span>Safe Way Driving Academy</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Benefits</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- =========================================
+       HERO SECTION
+  ========================================== -->
+  <section class="hero">
+    <div class="container hero-content">
+
+      <!-- Hero Text Content -->
+      <div class="hero-text">
+        <h1>Drive Smart. <span>Drive Safe.</span></h1>
+        <p>
+          Learn from certified instructors and gain the confidence you need on the road.
+          Safe Way Driving Academy helps beginners become safe, responsible, and skilled drivers.
+        </p>
+
+        <!-- Call To Action Button -->
+        <a href="#contact" class="cta-btn">Book Your First Lesson</a>
+      </div>
+
+      <!-- Hero Card -->
+      <div class="hero-card">
+        <h3>Why Students Choose Us</h3>
+        <ul>
+          <li>✔ Certified Professional Instructors</li>
+          <li>✔ Flexible Driving Schedules</li>
+          <li>✔ Modern & Safe Vehicles</li>
+          <li>✔ Beginner Friendly Lessons</li>
+          <li>✔ High Passing Success Rate</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ABOUT SECTION
+  ========================================== -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+
+      <!-- Visual Area -->
+      <div class="about-image">
+        🚘
+      </div>
+
+      <!-- About Text -->
+      <div class="about-text">
+        <h2>About Our Academy</h2>
+        <p>
+          At Safe Way Driving Academy, we believe driving is more than just passing a test — it’s about building confidence, responsibility, and lifelong safety habits.
+        </p>
+        <br>
+        <p>
+          Our experienced instructors provide patient, personalized training designed for new drivers, nervous learners, and anyone looking to improve their driving skills.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FEATURES / BENEFITS SECTION
+  ========================================== -->
+  <section id="features">
+    <div class="container">
+      <h2>Why Choose Safe Way?</h2>
+
+      <div class="features-grid">
+
+        <!-- Feature Card 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Safety First</h3>
+          <p>
+            We focus on defensive driving techniques and real-world road awareness.
+          </p>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>Expert Instructors</h3>
+          <p>
+            Learn from professional trainers with years of practical teaching experience.
+          </p>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Flexible Schedule</h3>
+          <p>
+            Choose lesson times that fit your busy school, work, or family routine.
+          </p>
+        </div>
+
+        <!-- Feature Card 4 -->
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Modern Vehicles</h3>
+          <p>
+            Practice in clean, safe, and fully equipped training vehicles.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CONTACT SECTION
+  ========================================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+        <h2>Ready To Start Driving?</h2>
+        <p>
+          Contact Safe Way Driving Academy today and begin your journey toward becoming a confident and responsible driver.
+        </p>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          📍 Your City, Your Country<br>
+          📞 +1 (234) 567-890<br>
+          ✉ info@safewayacademy.com
+        </div>
+
+        <!-- Contact Button -->
+        <a href="mailto:info@safewayacademy.com" class="contact-btn">
+          Contact Us Today
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+  <footer>
+    © 2026 Safe Way Driving Academy. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
+```
