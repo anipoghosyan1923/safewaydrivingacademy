@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
   ========================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -30,7 +32,7 @@
       --accent:#e07a5f;
       --dark:#102a43;
       --white:#ffffff;
-      --gray:#f6f9fc;
+      --gray:#f5f9fc;
     }
 
     html{
@@ -86,7 +88,7 @@
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(255,255,255,0.95);
+      background:rgba(255,255,255,0.96);
       backdrop-filter:blur(10px);
       box-shadow:0 2px 20px rgba(0,0,0,0.05);
     }
@@ -143,7 +145,7 @@
       background:
       linear-gradient(
       135deg,
-      rgba(202,240,248,0.9),
+      rgba(202,240,248,0.95),
       rgba(255,255,255,1)
       );
     }
@@ -279,6 +281,54 @@
     }
 
     /* =========================
+       SOCIAL MEDIA SECTION
+    ========================== */
+    .social-media{
+      background:var(--gray);
+    }
+
+    .social-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:30px;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .social-card{
+      background:white;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      text-decoration:none;
+      transition:0.3s ease;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      border:1px solid #e7eef5;
+    }
+
+    .social-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--primary);
+    }
+
+    .social-icon{
+      width:80px;
+      height:80px;
+      background:var(--light);
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      margin:0 auto 20px;
+    }
+
+    .social-card h3{
+      color:var(--secondary);
+      margin-bottom:10px;
+    }
+
+    /* =========================
        CONTACT SECTION
     ========================== */
     .contact{
@@ -298,7 +348,7 @@
     }
 
     .contact p{
-      color:rgba(255,255,255,0.9);
+      color:rgba(255,255,255,0.92);
       margin-bottom:12px;
       font-size:1.05rem;
     }
@@ -325,7 +375,7 @@
     }
 
     /* =========================
-       MOBILE RESPONSIVE
+       RESPONSIVE DESIGN
     ========================== */
     @media(max-width:992px){
 
@@ -379,6 +429,10 @@
         font-size:2rem;
       }
 
+      .social-grid{
+        grid-template-columns:1fr;
+      }
+
     }
 
   </style>
@@ -390,25 +444,34 @@
        HEADER / NAVBAR
   ========================== -->
   <header>
+
     <div class="container">
+
       <nav>
 
         <!-- Logo -->
         <div class="logo">
-          <img src="https://cdn.shopify.com/s/files/1/0980/4274/1046/files/IMG_3925.jpg?v=1779728386" alt="Safe Way Driving Academy Logo">
+
+          <img
+          src="https://cdn.shopify.com/s/files/1/0980/4274/1046/files/IMG_3925.jpg?v=1779728386"
+          alt="Safe Way Driving Academy Logo">
 
           <h2>Safe Way Driving Academy</h2>
+
         </div>
 
-        <!-- Navigation -->
+        <!-- Navigation Links -->
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#features">Programs</a>
+          <a href="#social">Social</a>
           <a href="#contact">Contact</a>
         </div>
 
       </nav>
+
     </div>
+
   </header>
 
   <!-- =========================
@@ -423,15 +486,19 @@
         <!-- Hero Text -->
         <div class="hero-text">
 
-          <h1>Drive Safe. Drive Smart. Drive With Confidence.</h1>
+          <h1>
+            Drive Safe. Drive Smart. Drive With Confidence.
+          </h1>
 
           <p>
-            Safe Way Driving Academy helps future drivers become confident,
-            skilled, and responsible on the road through professional training
-            and modern teaching methods.
+            Safe Way Driving Academy helps future drivers become
+            confident, skilled, and responsible on the road through
+            professional training and modern teaching methods.
           </p>
 
-          <a href="#contact" class="btn">Start Learning Today</a>
+          <a href="#contact" class="btn">
+            Start Learning Today
+          </a>
 
         </div>
 
@@ -451,7 +518,7 @@
   </section>
 
   <!-- =========================
-       SUCCESS / STUDENTS SECTION
+       SUCCESS SECTION
   ========================== -->
   <section class="success">
 
@@ -485,7 +552,7 @@
 
       </div>
 
-      <!-- About Content -->
+      <!-- About Cards -->
       <div class="about-content">
 
         <!-- Card 1 -->
@@ -494,9 +561,9 @@
           <h3>Professional Driving Education</h3>
 
           <p>
-            We provide complete driving education programs designed for
-            beginners and future confident drivers. Our instructors focus on
-            safety, responsibility, and practical road skills.
+            We provide complete driving education programs designed
+            for beginners and future confident drivers. Our instructors
+            focus on safety, responsibility, and practical road skills.
           </p>
 
         </div>
@@ -507,9 +574,8 @@
           <h3>Modern Learning Experience</h3>
 
           <p>
-            Learn through structured practical lessons and theoretical studies.
-            We create a friendly and professional environment where students
-            feel comfortable learning step-by-step.
+            Learn through structured practical lessons and theoretical
+            studies in a friendly and supportive environment.
           </p>
 
         </div>
@@ -521,7 +587,7 @@
   </section>
 
   <!-- =========================
-       FEATURES / BENEFITS SECTION
+       FEATURES SECTION
   ========================== -->
   <section id="features">
 
@@ -549,8 +615,8 @@
           <h3>Theoretical Lessons</h3>
 
           <p>
-            Comprehensive classroom learning designed to teach essential
-            driving knowledge and road awareness.
+            Comprehensive classroom lessons designed to teach
+            essential driving knowledge and road awareness.
           </p>
 
         </div>
@@ -563,8 +629,8 @@
           <h3>Road Driving Law Studies</h3>
 
           <p>
-            Learn traffic regulations, road signs, safety rules, and legal
-            driving requirements in Armenia.
+            Learn traffic regulations, road signs, safety rules,
+            and legal driving requirements.
           </p>
 
         </div>
@@ -582,6 +648,64 @@
           </p>
 
         </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       SOCIAL MEDIA SECTION
+  ========================== -->
+  <section class="social-media" id="social">
+
+    <div class="container">
+
+      <!-- Section Title -->
+      <div class="section-title">
+
+        <h2>Follow Us On Social Media</h2>
+
+        <p>
+          Stay connected with Safe Way Driving Academy
+          for updates, student success stories, and driving tips.
+        </p>
+
+      </div>
+
+      <!-- Social Cards -->
+      <div class="social-grid">
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/safeway.driving.academy/"
+          target="_blank"
+          class="social-card"
+        >
+
+          <div class="social-icon">📸</div>
+
+          <h3>Instagram</h3>
+
+          <p>@safeway.driving.academy</p>
+
+        </a>
+
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/profile.php?id=61554940475976"
+          target="_blank"
+          class="social-card"
+        >
+
+          <div class="social-icon">📘</div>
+
+          <h3>Facebook</h3>
+
+          <p>Safe Way Driving Academy</p>
+
+        </a>
 
       </div>
 
@@ -650,3 +774,4 @@
 
 </body>
 </html>
+```
